@@ -1,0 +1,37 @@
+version: "0.7"
+opam-version: "2.0"
+name:         "eqaf"
+maintainer:   [ "Sai Venkata Krishnan V <saiganesha5.svkv@gmail.com>" ]
+authors:      [ "Romain Calascibetta <romain.calascibetta@gmail.com>" ]
+homepage:     "https://github.com/mirage/eqaf"
+bug-reports:  "https://github.com/mirage/eqaf/issues"
+dev-repo:     "git+https://github.com/mirage/eqaf.git"
+doc:          "https://mirage.github.io/eqaf/"
+license:      "MIT"
+synopsis:     "Constant-time equal function on string"
+description: """
+This package provides an equal function on string in constant-time to avoid timing-attack with crypto stuff.
+"""
+
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "build" "-x" "riscv" "-p" "eqaf" "-j" jobs ]
+  [ "dune" "runtest" "-p" name "-j" "1" "--no-buffer" "--verbose" ] {with-test}
+]
+
+depends: [
+  "ocaml-riscv"          {>= "4.03.0"}
+  "dune"
+  "base64-riscv"         {with-test}
+  "alcotest"       {with-test}
+  "crowbar"        {with-test}
+]
+
+depopts: [
+  "cstruct-riscv"
+  "bigarray-compat-riscv"
+]
+
+conflicts: [
+  "cstruct-riscv" {< "4.0.0"}
+]
