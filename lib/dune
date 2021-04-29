@@ -1,7 +1,8 @@
 (library
  (name eqaf)
  (public_name eqaf)
- (modules eqaf))
+ (modules eqaf)
+ (ocamlopt_flags (-S)))
 
 (library
  (name eqaf_bigstring)
