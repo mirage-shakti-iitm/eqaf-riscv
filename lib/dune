@@ -2,7 +2,7 @@
  (name eqaf)
  (public_name eqaf)
  (modules eqaf)
- (ocamlopt_flags (-S)))
+ (ocamlopt_flags (-function-sections)))
 
 (library
  (name eqaf_bigstring)
