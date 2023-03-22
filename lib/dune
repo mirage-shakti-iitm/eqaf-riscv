@@ -2,18 +2,20 @@
  (name eqaf)
  (public_name eqaf)
  (modules eqaf)
- (ocamlopt_flags (-default-compartment-id 11 -function-sections)))
+ (ocamlopt_flags (-default-compartment-id 6 -function-sections)))
 
 (library
  (name eqaf_bigstring)
  (optional)
  (public_name eqaf.bigstring)
  (modules eqaf_bigstring)
- (libraries eqaf bigarray-compat))
+ (libraries eqaf bigarray-compat)
+ (ocamlopt_flags (-default-compartment-id 6 -function-sections)))
 
 (library
  (name eqaf_cstruct)
  (optional)
  (public_name eqaf.cstruct)
  (modules eqaf_cstruct)
- (libraries cstruct eqaf.bigstring))
+ (libraries cstruct eqaf.bigstring)
+ (ocamlopt_flags (-default-compartment-id 6 -function-sections)))
